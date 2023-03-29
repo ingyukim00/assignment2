@@ -1,4 +1,10 @@
 let darkmode_switch = 0;
+let cancel_switch = 0;
+let newnote_switch = 0;
+let notesArray = [];
+let title = "";
+let body = "";    // format: {title:"note one", body:"this is my first note"}
+
 function DarkMode() {
     var body_element = document.body;
     var side_bar = document.querySelector("header");
@@ -17,8 +23,6 @@ function DarkMode() {
     }
 };
 
-let cancel_switch = 0;
-let newnote_switch = 0;
 
 function cancel() {
     var text_area = document.getElementById("take_note");
@@ -44,3 +48,19 @@ function NewNote() {
         text_area.value = "";
     };
 };
+
+function Save() {
+    var text_area = document.getElementById("take_note")
+    if (!(text_area.value === "")) {
+        let title_input = prompt("Type for the title: ");
+        title = title_input;
+        body = text_area.value;
+        format = {title: title, body: body};
+        return notesArray.push(format);
+    }
+};
+
+
+
+
+
