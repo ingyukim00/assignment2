@@ -29,3 +29,18 @@ function cancel() {
     cancel_button.classList.toggle("hiding");
     return cancel_switch = 1;
 };
+
+function NewNote() {
+    var text_area = document.getElementById("take_note");
+    var save_button = document.getElementById("save_button");
+    var cancel_button = document.getElementById("cancel_button");
+    if (cancel_switch === 1) {
+        text_area.classList.remove("hiding");
+        save_button.classList.remove("hiding");
+        cancel_button.classList.remove("hiding");
+        return cancel_switch = 0;
+    }
+    else if (cancel_switch === 0) {
+        text_area.value = "";
+    };
+};
