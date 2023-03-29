@@ -147,3 +147,7 @@ main textarea {
     background-color: #3D3E3E;
     color: #DDDDDD;
 }
+
+.hiding {
+    display: none;
+}
