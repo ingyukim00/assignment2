@@ -4,11 +4,18 @@ let newnote_switch = 0;
 let notesArray = [];
 let title = "";
 let body = "";    // format: {title:"note one", body:"this is my first note"}
+var darkmode_button = document.getElementById("darkmode_button");
+darkmode_button.addEventListener("click", DarkMode);
+var cancel_button = document.getElementById("cancel_button");
+cancel_button.addEventListener("click", cancel);
+var newnote_button = document.getElementById("newnote_button");
+newnote_button.addEventListener("click", NewNote);
+var save_button = document.getElementById("save_button");
+save_button.addEventListener("click", Save);
 
 function DarkMode() {
     var body_element = document.body;
     var side_bar = document.querySelector("header");
-    var darkmode_button = document.getElementById("darkmode_button");
     if (darkmode_switch === 0) {
         body_element.classList.toggle("dark_mode_body");
         side_bar.classList.toggle("dark_mode_sidebar");
@@ -27,7 +34,6 @@ function DarkMode() {
 function cancel() {
     var text_area = document.getElementById("take_note");
     var save_button = document.getElementById("save_button");
-    var cancel_button = document.getElementById("cancel_button");
     text_area.classList.toggle("hiding");
     save_button.classList.toggle("hiding");
     cancel_button.classList.toggle("hiding");
@@ -64,8 +70,5 @@ function Save() {
     }
 };
 
-
-
-console.log(document.querySelector('header ul'));
 
 
