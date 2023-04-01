@@ -56,26 +56,52 @@ function NewNote() {
 };
 
 function Save() {
-    var text_area = document.getElementById("take_note")
+    var text_area = document.getElementById("take_note");
     if (!(text_area.value === "")) {
         let title_input = prompt("Type for the title: ");
-        title = title_input;
-        body = text_area.value;
-        format = { title: title, body: body };
-        notesArray.push(format);
-        const note_list = document.querySelector('header ul');
-        const new_list = document.createElement("li");
-        new_list.textContent = title;
-        note_list.appendChild(new_list);
-    }
+        let body_input = text_area.value;
+        format = { title: title_input, body: body_input };
+        // notesArray.push(format);
+        // const note_list = document.querySelector('header ul');
+        // const new_list = document.createElement("li");
+        // new_list.textContent = title_input;
+        // note_list.appendChild(new_list);
+        if (notesArray.length === 0) {
+            notesArray.push(format);
+            const note_list = document.querySelector('header ul');
+            const new_list = document.createElement("li");
+            new_list.textContent = title_input;
+            note_list.appendChild(new_list);
+        }
+        else {
+            for (let i = 0; i < notesArray.length; i++) {
+                console.log(i);
+                if (notesArray[i].title === title_input) {
+                    console.log(notesArray[i].title);
+                    alert("You already have a same name of title.");
+                    break
+                }
+                else if (i === notesArray.length - 1) {
+                    notesArray.push(format);
+                    const note_list = document.querySelector('header ul');
+                    const new_list = document.createElement("li");
+                    new_list.textContent = title_input;
+                    note_list.appendChild(new_list);
+                    break
+                };
+
+            };
+        };
+    };
 };
 
+
 note_lists = document.querySelector("header ul");
-note_lists.addEventListener("click", function(event){
+note_lists.addEventListener("click", function (event) {
     var text_area = document.getElementById("take_note")
     for (let item of notesArray) {
         if (item.title === event.target.textContent) {
             text_area.value = item.body;
+        }
     }
-}
 });
