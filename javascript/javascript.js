@@ -61,7 +61,7 @@ function Save() {
         let title_input = prompt("Type for the title: ");
         title = title_input;
         body = text_area.value;
-        format = {title: title, body: body};
+        format = { title: title, body: body };
         notesArray.push(format);
         const note_list = document.querySelector('header ul');
         const new_list = document.createElement("li");
@@ -70,5 +70,12 @@ function Save() {
     }
 };
 
-
-
+note_lists = document.querySelector("header ul");
+note_lists.addEventListener("click", function(event){
+    var text_area = document.getElementById("take_note")
+    for (let item of notesArray) {
+        if (item.title === event.target.textContent) {
+            text_area.value = item.body;
+    }
+}
+});
