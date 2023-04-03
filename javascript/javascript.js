@@ -61,11 +61,6 @@ function Save() {
         let title_input = prompt("Type for the title: ");
         let body_input = text_area.value;
         format = { title: title_input, body: body_input };
-        // notesArray.push(format);
-        // const note_list = document.querySelector('header ul');
-        // const new_list = document.createElement("li");
-        // new_list.textContent = title_input;
-        // note_list.appendChild(new_list);
         if (notesArray.length === 0) {
             notesArray.push(format);
             const note_list = document.querySelector('header ul');
