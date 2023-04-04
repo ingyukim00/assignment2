@@ -137,3 +137,17 @@ main textarea {
     }
 
 }
+
+.dark_mode_body {
+    background-color: #222323;
+    color: #DDDDDD;
+}
+
+.dark_mode_sidebar {
+    background-color: #3D3E3E;
+    color: #DDDDDD;
+}
+
+.hiding {
+    display: none;
+}
